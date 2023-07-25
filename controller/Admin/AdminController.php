@@ -561,7 +561,7 @@ class AdminController
 			if (isset($_FILES['usu_img'])) {
 
 				$nombrefinal = basename($_FILES['usu_img']['name']);
-				$ruta = "C:/xampp/htdocs/gestionintegral/img/" . $nombrefinal;
+				$ruta = "C:/xampp/htdocs/Apps/gestionintegral/img/" . $nombrefinal;
 				move_uploaded_file($_FILES['usu_img']["tmp_name"], $ruta);
 				$usu_img = $ruta;
 

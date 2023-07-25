@@ -63,7 +63,7 @@ class LoginController
                     }
                 } else {
                     //alerta de que no coincide la contraseña
-                    echo "<script>alert('El correo o contraseña no coinciden, vuelva a intentarlo'); </script>";
+                    echo "<script>alert('El correo o t contraseña no coinciden, vuelva a intentarlo'); </script>";
                     redirect('login.php');
                 }
             } else {

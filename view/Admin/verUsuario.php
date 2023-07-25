@@ -36,13 +36,17 @@
 
                                         <?= $pdf_requerido = "";
 
-                                    if($usuario['estado'] == "Desactivo") {
-                                        $pdf_requerido = "_inactivo";
-                                    }
-                                    ?>
-                                        <td><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/gestionintegral' . $usuario['url_pdf'].$pdf_requerido ?>" type="button" target="_blank" data-original-title="Ver Detalles">
-                                                <i class="fas fa-eye"></i>
-                                            </a></td>
+if($usuario['estado'] == "Desactivo") {
+                                        
+
+    $pdf_requerido = substr_replace($usuario['url_pdf'], "_inactivo", (strlen($usuario['url_pdf'])-4), 0);
+}else {
+    $pdf_requerido = $usuario['url_pdf'];
+}
+?>
+    <td><a href="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . '/gestionintegral' . $pdf_requerido ?>" type="button" target="_blank" data-original-title="Ver Detalles">
+            <i class="fas fa-eye"></i>
+        </a></td>
                                         <td><a href="<?= getUrl("admin", "admin", "updateUsuario", array("usu_id" => $usuario['usu_id'])); ?>" type="button" class="" data-original-title="Editar cotizacion">
                                                 <i class="bi bi-pencil-square">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

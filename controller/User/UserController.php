@@ -25,18 +25,24 @@ class userController
 
 		$consulta = $objeto->consult($sql);
     $row = $consulta->fetch_assoc();
-    $url_website = 'http://'.$_SERVER['HTTP_HOST'].'/gestionintegral';
+    $url_website = 'https://'.$_SERVER['HTTP_HOST'].'/gestionintegral';
     if(isset($row["usu_id"]) == Null){
       echo  "<h1 class='text-center'> Usuario no registrado </h1>";
     } else {
 
+     
       $pdf_requerido = "";
 
       if($row['estado'] == "Desactivo") {
-          $pdf_requerido = "_inactivo";
-      }
+        $pdf_requerido = substr_replace($row['url_pdf'], "_inactivo", (strlen($row['url_pdf'])-4), 0);
+      } else {
+        $pdf_requerido = $row['url_pdf'];
+    }
 
-      echo  " <h1 class='text-center' style='color:black;'><a id='carnet_digital' href='".$url_website.$row["url_pdf"].$pdf_requerido."#toolbar=0'>Tu carnet digital.</a></h1> ";
+     
+
+      echo  " <h1 class='text-center' style='color:black;'><a id='carnet_digital' href='".$url_website.$pdf_requerido."'>Tu carnet digital.</a></h1> ";
+     
     }
 
 	}

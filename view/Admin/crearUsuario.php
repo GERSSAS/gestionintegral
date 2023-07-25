@@ -105,7 +105,7 @@
 
                         <div class="col-12 mb-6">
                             <h6>Seleccione imagen a cargar</h6>
-                            <input  id="cartapresentacion" type="file" name="usu_img" class="eme2 estiloinput">
+                            <input  id="cartapresentacion" type="file" name="usu_img" class="eme2 estiloinput" required>
                         </div>
 
 
